@@ -25,12 +25,6 @@ function NavbarGuest() {
                     >
                         <Nav.Link href="/registration">Registration</Nav.Link>
                         <Nav.Link href="/login">Login</Nav.Link>
-                        <NavDropdown title="users" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="/account">Account</NavDropdown.Item>
-                            <NavDropdown.Item href="/setting">Account setting</NavDropdown.Item>
-
-
-                        </NavDropdown>
 
                     </Nav>
                     <Form className="d-flex">
@@ -56,6 +50,7 @@ function NavbarGuest() {
 
 
         </div>
+
     );
 }
 

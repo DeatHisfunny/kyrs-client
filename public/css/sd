@@ -1,0 +1,50 @@
+/*function Registration() {
+
+   return( <h3><h1>Form Register</h1>
+       <Form >
+           <Form.Group controlId="name">
+               <Form.Label>User Name</Form.Label>
+               <Form.Control type="name"
+                             name="name" class="field" placeholder="Example: UserName"/>
+
+               <Form.Label>Email Adress</Form.Label>
+               <Form.Control id="email"
+                             name="email" type="email"  placeholder="Example: example@gmail.com"/>
+
+               <Form.Label>Pasword</Form.Label>
+               <Form.Control type="pasword" name="pasword" placeholder="Enter Pasword"/>
+
+               <Form.Label>Confirm Pasword</Form.Label>
+               <Form.Control type="pasword" placeholder="Enter Confirm Pasword"/>
+           </Form.Group>
+           <button variant="primary" type="submit">Submit</button>
+       </Form>
+
+       </h3>)
+}
+export default Registration;
+
+
+import React from 'react';
+import {Form} from 'react-bootstrap';
+import LoginBar from '../todo/todologin'
+
+function login() {
+    return(
+        <h3><h1>Log In</h1><Form>
+            <Form.Group controlId="Name">
+                <Form.Label>User Name</Form.Label>
+                <Form.Control type="Name" placeholder="Enter UserName"/>
+            </Form.Group>
+        </Form>
+            <Form>
+                <Form.Group controlId="pasword">
+                    <Form.Label>Pasword</Form.Label>
+                    <Form.Control type="pasword" placeholder="Enter Pasword"/>
+                </Form.Group>
+            </Form><h5></h5></h3>
+    )
+}
+
+
+export default login;
