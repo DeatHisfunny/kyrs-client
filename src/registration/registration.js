@@ -2,8 +2,7 @@
 
 import React from 'react';
 import {Form} from 'react-bootstrap';
-import UserBar from '../todo/todo';
-import RegisterBar from '../todo/todoregist'
+
 
 
 
@@ -26,7 +25,7 @@ export class Registration extends React.Component {
 
         event.preventDefault();
         const formData = new FormData(event.target);
-        const name = formData.get('name');
+
         const email = formData.get('email');
         const password = formData.get('password');
 

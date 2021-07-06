@@ -11,6 +11,7 @@ import {
 } from "react-router-dom"
 import {login} from './authorization/login.js';
 import {Registration} from './registration/registration.js';
+import LoginForm from "./Components/LoginForm";
 
 
 
@@ -21,7 +22,7 @@ function App() {
   return (
 
     <div className="App">
-
+<LoginForm />
 
             <Navbar />
 
