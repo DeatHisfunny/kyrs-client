@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const API_URL = `http://localhost:4000`
+export const API_URL = `https://fierce-lowlands-04983.herokuapp.com`
 
 const $api = axios.create({
     withCredentials: true,
