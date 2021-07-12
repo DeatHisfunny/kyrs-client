@@ -14,12 +14,12 @@ export const Context = createContext({
 })
 
 ReactDOM.render(
-<Context.Provider value={{
-    store
-}}>
-    <App />
-</Context.Provider>,
+    <Context.Provider value={{
+        store
+    }}>
+        <App />
+    </Context.Provider>,
 
 
-  document.getElementById('root')
+    document.getElementById('root')
 );
