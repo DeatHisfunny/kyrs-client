@@ -1,7 +1,6 @@
 import React from 'react';
 import {button, Form} from 'react-bootstrap';
-import UserBar from '../todo/todo';
-import RegisterBar from '../todo/todoregist'
+
 
 
 

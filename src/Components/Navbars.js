@@ -1,18 +1,22 @@
 import {Button, Form, FormControl, Nav, Navbar, Container} from "react-bootstrap";
-import React from "react";
+import React, {useContext} from "react";
 import '../DarkMode/dark-mode.css';
 import '../DarkMode/dark-mode-switch';
 import '../DarkMode/dark-mode-switch.min';
 
+import {Context} from "../index";
 
 
 
-function NavbarGuest() {
+
+
+function NavbarClient() {
 
     return (
 
 
         <div className="App">
+
             <Navbar bg="light" expand="lg">
 
                 <Navbar.Brand href="/">Home</Navbar.Brand>
@@ -27,8 +31,18 @@ function NavbarGuest() {
                         <Nav.Link href="/login">Login</Nav.Link>
 
                     </Nav>
+
+                    <nav className="navbar navbar-light bg-light">
+                        <div className="container-fluid">
+    <span className="navbar-text">
+
+
+    </span>
+                        </div>
+                    </nav>
                     <Form className="d-flex">
                         <FormControl
+
                             type="search"
                             placeholder="Search"
                             className="mr-2"
@@ -54,4 +68,4 @@ function NavbarGuest() {
     );
 }
 
-export default NavbarGuest;
+export default NavbarClient;

@@ -1,75 +1,52 @@
-
-import React from 'react';
-import {Form} from 'react-bootstrap';
-
-export class Books extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {value: ''};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
-
-
-    handleSubmit(event) {
-
-        event.preventDefault();
-        const formData = new FormData(event.target);
-
-        const email = formData.get('email');
-        const password = formData.get('password');
-
-        fetch("http://localhost:4000/api/login", {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json;charset=utf-8' },
-            body: JSON.stringify({email: email,
-                password: password })})
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    console.log(result);
-
-                },
-                // Примечание: важно обрабатывать ошибки именно здесь, а не в блоке catch(),
-                // чтобы не перехватывать исключения из ошибок в самих компонентах.
-                (error) => {
-                    console.log(error);
-
-                }
-            )
-
-        event.preventDefault();
-    }
-
-    render() {
-        return (
-
-            <h3><h1>Form Login</h1>
-                <Form onSubmit={this.handleSubmit}>
-                    <Form.Group controlId="name">
-
-
-                        <Form.Label>Email Adress</Form.Label>
-                        <Form.Control id="email"
-                                      name="email" type="email"  placeholder="Example: example@gmail.com"/>
-
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" name="password" placeholder="Enter Password"/>
-
-
-                    </Form.Group>
-                    <button variant="primary" type="submit">Submit</button>
-                </Form>
-
-            </h3>
+import React from "react";
 
 
 
-        );
-    }
+
+
+const stylesBottom = {
+    width:50,
+    marginLeft: 700,
 }
+const styles = {
+    width: 200,
+    height:250
+};
+const styless ={
+    marginLeft: 100,
+    marginTop: 50,
+};
+function Books() {
+
+
+    return (
+        <div className="row mb-3">
+
+            <div style={styless} className="col-md-10">
+                <div
+                    className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+
+                    <div className="col p-4 d-flex flex-column position-static">
+
+                        <strong className="d-inline-block mb-2 text-primary">Автор</strong>
+                        <h3 className="mb-0">Название книги</h3>
+                        <div className="mb-1 text-muted">Дата</div>
+                        <p className="card-text mb-auto">Описание</p>
+                        <a href="#" className="write">Читать</a>
+                        <button style={stylesBottom} type="button" className="btn btn-primary btn-sm">Like</button>
+
+                    </div>
+
+                    <div className="col-auto d-none d-lg-block">
+
+                        <img
+                            src="http://pm1.narvii.com/7160/aefe1434328162cbacc31975958cb850de5fc44er1-1920-1200v2_uhq.jpg" style={styles}
+                        ></img>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    )}
+export default Books;

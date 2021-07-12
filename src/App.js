@@ -1,8 +1,12 @@
 
 
-import React from "react";
-import Navbar from "./Components/Navbar.js";
-import {Books} from "./containers/books";
+import './DarkMode/dark-mode.css';
+import './DarkMode/dark-mode-switch';
+import './DarkMode/dark-mode-switch.min';
+import React, {useContext, useEffect} from "react";
+import Navbars from './Components/Navbars'
+import Books from "../src/containers/books";
+import {observer} from "mobx-react-lite";
 
 import {
     Route,
@@ -12,30 +16,65 @@ import {
 import {login} from './authorization/login.js';
 import {Registration} from './registration/registration.js';
 import LoginForm from "./Components/LoginForm";
+import {Context} from "./index";
+import RegistForm from "./Components/RegistForm";
+
 
 
 
 
 
 function App() {
+    const {store} = useContext(Context);
 
-  return (
+    useEffect(()=>{
+        if(localStorage.getItem('token')){
+            store.checkAuth()
+        }
+    },[])
 
-    <div className="App">
-<LoginForm />
+    if (store.isLoading) {
+        return <div>Загрузка...</div>
+    }
+    if(!store.isAuth){
+        return (
+            <div><Navbars/>
+                <Router>
 
-            <Navbar />
+                    <Switch>
+                        <Route exact path="/" component={Books}/>
+                        <Route exact path="/registration" component={RegistForm}/>
+                        <Route exact path="/login" component={LoginForm}/>
+                    </Switch>
+                </Router></div>
 
 
-        <Router>
-            <Switch>
-                <Route exact path="/" component={Books}/>
-                <Route exact path="/registration" component={Registration}/>
-                <Route exact path="/login" component={login}/>
-            </Switch>
-        </Router>
-    </div>
-  );
+        )
+    }
+
+    return (
+
+        <div className="App">
+            <Navbars/>
+
+
+
+
+            <Router>
+                <Switch>
+                    <Route exact path="/" component={Books}/>
+                    <Route exact path="/registration" component={RegistForm}/>
+                    <Route exact path="/login" component={LoginForm}/>
+                </Switch>
+            </Router>
+
+
+
+
+
+
+        </div>
+    );
 }
 
-export default App;
+export default observer(App);
